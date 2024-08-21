@@ -37,3 +37,10 @@ export type Option = {
 	value: string;
 	label: string;
 };
+
+export type FilterToggleItem = {
+	value: string;
+	label: string;
+	endContent?: React.ReactNode;
+	startContent?: React.ReactNode;
+};

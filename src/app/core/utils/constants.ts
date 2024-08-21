@@ -8,7 +8,7 @@ export const PATHS: Path[] = [
 	{
 		icon: IconHome(),
 		label: "Comandas",
-		path: path.private.home
+		path: path.private.comands
 	},
 	{
 		icon: IconOrders(),

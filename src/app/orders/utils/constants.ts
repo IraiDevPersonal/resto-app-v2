@@ -1,6 +1,6 @@
-import { Option } from "@utils/types";
+import { FilterToggleItem } from "@utils/types";
 
-export const CATEGORY_FILTERS: Option[] = [
+export const CATEGORY_FILTERS: FilterToggleItem[] = [
 	{ label: "Bebestibles", value: "bebestibles" },
 	{ label: "Cafés", value: "cafes" },
 	{ label: "Pasteles", value: "pasteles" },

@@ -1,14 +1,16 @@
-import { Option } from "@utils/types";
+import { FilterToggleItem } from "@utils/types";
+import { useState } from "react";
 import ArrayMap from "../components/ArrayMap";
 import Button from "../components/Button";
-import { useState } from "react";
 
 type FilterToggleButtonsProps = {
-	options: Option[];
+	options: FilterToggleItem[];
 };
 
+type Option = FilterToggleItem & { isActive: boolean };
+
 const FilterToggleButtons = ({ options }: FilterToggleButtonsProps) => {
-	const [state, setState] = useState<(Option & { isActive: boolean })[]>(
+	const [state, setState] = useState<Option[]>(
 		options.map((el) => ({ ...el, isActive: false }))
 	);
 	const handleSelectOption = (value: Option["value"]) => {

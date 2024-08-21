@@ -3,6 +3,7 @@ import PrivateLayout from "@app/core/design-system/layouts/PrivateLayout";
 import { Redirect, Route, Router as Wouter } from "wouter";
 import { path } from "./path";
 import OrderPage from "@app/orders/pages/OrderPage";
+import ComandsPage from "@app/comands/pages/ComandsPage";
 
 const Router = () => {
 	return (
@@ -10,6 +11,7 @@ const Router = () => {
 			<Wouter>
 				<PrivateLayout>
 					<Navigate />
+					<ComandsPage />
 					<OrderPage />
 				</PrivateLayout>
 			</Wouter>
@@ -23,7 +25,7 @@ function Navigate() {
 		<Route path="/">
 			<Redirect
 				replace
-				to={path.private.orders}
+				to={path.private.comands}
 			/>
 		</Route>
 	);
