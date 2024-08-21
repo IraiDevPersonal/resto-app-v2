@@ -1,15 +1,8 @@
-import { ICON_SIZE } from "@utils/constants";
+import { SvgAtributtes } from "@utils/types";
+import IconWrapper from "./IconWrapper";
 
-const IconOrders = (props?: React.SVGProps<SVGSVGElement>) => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		width={ICON_SIZE}
-		height={ICON_SIZE}
-		// color={"#000000"}
-		fill={"none"}
-		{...props}
-	>
+const IconOrders = (props?: SvgAtributtes) => (
+	<IconWrapper {...props}>
 		<path
 			d="M5 7L6.7602 17.4048C7.06616 19.2134 7.21914 20.1177 7.76007 20.7417C9.21438 22.4194 14.7856 22.4194 16.2399 20.7417C16.7809 20.1177 16.9338 19.2134 17.2398 17.4048L19 7"
 			stroke="currentColor"
@@ -37,7 +30,7 @@ const IconOrders = (props?: React.SVGProps<SVGSVGElement>) => (
 			strokeWidth="1.5"
 			strokeLinecap="round"
 		/>
-	</svg>
+	</IconWrapper>
 );
 
 export default IconOrders;

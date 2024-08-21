@@ -13,6 +13,7 @@ export type Size = "lg" | "md" | "sm" | "xs";
 export type JsxAtributtes = JSX.IntrinsicElements;
 export type HtmlElements = keyof JSX.IntrinsicElements;
 export type InputType = "date" | "time" | "text" | "password";
+export type SvgAtributtes = React.SVGProps<SVGSVGElement>;
 export type Color =
 	| "secondary"
 	| "warning"

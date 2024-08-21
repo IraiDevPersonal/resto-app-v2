@@ -1,23 +1,22 @@
 import { SvgAtributtes } from "@utils/types";
 import IconWrapper from "./IconWrapper";
 
-const IconSelector = (props?: SvgAtributtes) => (
+const IconSearch = (props?: SvgAtributtes) => (
 	<IconWrapper {...props}>
 		<path
-			d="M8 6.99997C8 6.99997 10.946 3.00001 12 3C13.0541 2.99999 16 7 16 7"
+			d="M17.5 17.5L22 22"
 			stroke="currentColor"
 			strokeWidth="1.5"
 			strokeLinecap="round"
 			strokeLinejoin="round"
 		/>
 		<path
-			d="M16 17C16 17 13.054 21 12 21C10.9459 21 8 17 8 17"
+			d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
 			stroke="currentColor"
 			strokeWidth="1.5"
-			strokeLinecap="round"
 			strokeLinejoin="round"
 		/>
 	</IconWrapper>
 );
 
-export default IconSelector;
+export default IconSearch;

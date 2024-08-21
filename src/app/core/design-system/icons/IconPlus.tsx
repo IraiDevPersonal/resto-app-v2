@@ -1,15 +1,8 @@
-import { ICON_SIZE } from "@utils/constants";
+import { SvgAtributtes } from "@utils/types";
+import IconWrapper from "./IconWrapper";
 
-const IconPlus = (props?: React.SVGProps<SVGSVGElement>) => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		width={ICON_SIZE}
-		height={ICON_SIZE}
-		// color={"#000000"}
-		fill={"none"}
-		{...props}
-	>
+const IconPlus = (props?: SvgAtributtes) => (
+	<IconWrapper {...props}>
 		<path
 			d="M12 4V20M20 12H4"
 			stroke="currentColor"
@@ -17,7 +10,7 @@ const IconPlus = (props?: React.SVGProps<SVGSVGElement>) => (
 			strokeLinecap="round"
 			strokeLinejoin="round"
 		/>
-	</svg>
+	</IconWrapper>
 );
 
 export default IconPlus;
