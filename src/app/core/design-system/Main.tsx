@@ -10,7 +10,10 @@ const Main = ({ children, className }: Props) => {
 	return (
 		<Box
 			as="main"
-			className={tw("flex flex-col w-full gap-4 p-4 min-h-screen", className)}
+			className={tw(
+				"flex flex-col w-full gap-4 p-4 min-h-screen bg-default-100",
+				className
+			)}
 		>
 			{children}
 		</Box>

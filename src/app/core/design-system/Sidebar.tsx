@@ -1,10 +1,10 @@
-import { Link, useRoute } from "wouter";
-import { Path } from "../models/path";
-import { PATHS } from "../utils/constants";
-import { tw } from "@utils/functions/tailwind";
 import Profile from "@app/profile/components/Profile";
+import { tw } from "@utils/functions/tailwind";
+import { Link, useRoute } from "wouter";
 import ArrayMap from "../components/ArrayMap";
 import Box from "../components/Box";
+import { Path } from "../models/path";
+import { PATHS } from "../utils/constants";
 
 const Sidebar = () => {
 	return (
@@ -25,7 +25,7 @@ const Sidebar = () => {
 				</div>
 			</header>
 
-			<nav className="!px-0">
+			<nav>
 				<ArrayMap
 					as="ul"
 					dataset={PATHS}

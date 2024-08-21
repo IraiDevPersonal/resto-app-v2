@@ -1,23 +1,37 @@
 import IconConfig from "@app/core/design-system/icons/IconConfig";
+import Logout from "./Logout";
+import Button from "@app/core/components/Button";
+import { Link } from "wouter";
+import { path } from "@app/routes/path";
 
 const Profile = () => {
 	return (
-		<button
-			title="Editar perfil"
-			className="flex justify-start items-center gap-2 p-4 group"
-		>
+		<div className="flex justify-start items-center gap-2 p-4">
 			<picture className="h-10 w-10 min-w-10 rounded-full flex items-center justify-center bg-default-200 font-semibold">
 				US
 			</picture>
 
-			<strong className="w-44 truncate group-hover:underline underline-offset-2 text-left">
+			<span className="w-44 truncate font-bold group-hover:underline underline-offset-2 text-left">
 				Usuario
-			</strong>
+			</span>
 
-			<figure className="text-transparent group-hover:text-inherit transition-colors duration-300">
-				<IconConfig />
-			</figure>
-		</button>
+			<div className="flex items-center">
+				<Link
+					to={path.private.profile}
+					asChild
+				>
+					<Button
+						isIconOnly
+						variant="light"
+						color="default"
+						title="Editar perfil"
+					>
+						<IconConfig />
+					</Button>
+				</Link>
+				<Logout />
+			</div>
+		</div>
 	);
 };
 

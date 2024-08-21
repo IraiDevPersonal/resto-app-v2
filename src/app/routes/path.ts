@@ -4,7 +4,8 @@ export const path = {
 		home: "/inicio",
 		orders: "/ordenes",
 		comands: "/comandas",
-		configs: "/configuraciones"
+		configs: "/configuraciones",
+		profile: "/perfil"
 	},
 	public: {
 		login: "iniciar-sesion"
