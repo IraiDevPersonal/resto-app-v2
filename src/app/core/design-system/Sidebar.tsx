@@ -5,8 +5,10 @@ import ArrayMap from "../components/ArrayMap";
 import Box from "../components/Box";
 import { Path } from "../models/path";
 import { PATHS } from "../utils/constants";
+import { DateRepository } from "@utils/repositories/DateRepository";
 
 const Sidebar = () => {
+	const date = new DateRepository();
 	return (
 		<Box
 			as="aside"
@@ -19,9 +21,11 @@ const Sidebar = () => {
 
 				<div className="flex flex-col gap-1.5">
 					<small className="capitalize text-default-700">
-						Mar. 20, Agosto 2024
+						{date.parse({ format: "ddddmmmYYYY" })}
 					</small>
-					<span className="font-bold text-3xl">10:05:22 PM</span>
+					<span className="font-bold text-3xl">
+						{date.parse({ format: "hhmmss_12" })}
+					</span>
 				</div>
 			</header>
 

@@ -58,7 +58,7 @@ const buttonVariant = (props: { color: Color; variant: Variant }) =>
 				warning: "bg-warning hover:bg-opacity-80 text-white",
 				primary: "bg-primary hover:bg-opacity-80 text-white",
 				success: "bg-success hover:bg-opacity-80 text-white",
-				default: "bg-default hover:bg-opacity-80 text-white",
+				default: "bg-default-200 hover:bg-opacity-80 text-inherit",
 				danger: "bg-danger hover:bg-opacity-80 text-white",
 				info: "bg-info hover:bg-opacity-80 text-white"
 			},
