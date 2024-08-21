@@ -10,20 +10,20 @@ const Sidebar = () => {
 	return (
 		<Box
 			as="aside"
-			className="flex flex-col gap-8 w-72 h-screen min-h-screen px-0 pb-0 *:px-4"
+			className="flex flex-col gap-8 w-72 h-screen min-h-screen p-0 pt-4"
 		>
-			<div className="flex items-center gap-2">
-				<h1 className="text-3xl font-bold">
+			<header className="px-4">
+				<h1 className="text-3xl font-bold pb-4">
 					Resto<span className="text-primary">App</span>
 				</h1>
-			</div>
 
-			<div className="flex flex-col gap-1.5">
-				<small className="capitalize text-default-700">
-					Mar. 20, Agosto 2024
-				</small>
-				<span className="font-bold text-3xl">10:05:22 PM</span>
-			</div>
+				<div className="flex flex-col gap-1.5">
+					<small className="capitalize text-default-700">
+						Mar. 20, Agosto 2024
+					</small>
+					<span className="font-bold text-3xl">10:05:22 PM</span>
+				</div>
+			</header>
 
 			<nav className="!px-0">
 				<ArrayMap
@@ -35,7 +35,9 @@ const Sidebar = () => {
 				</ArrayMap>
 			</nav>
 
-			<Profile />
+			<footer className="mt-auto">
+				<Profile />
+			</footer>
 		</Box>
 	);
 };
