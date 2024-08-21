@@ -1,4 +1,4 @@
-import IconConfig from "@app/core/design-system/icons/IconConfig";
+import IconUserSetting from "@app/core/design-system/icons/IconUserSetting";
 import Logout from "./Logout";
 import Button from "@app/core/components/Button";
 import { Link } from "wouter";
@@ -26,7 +26,7 @@ const Profile = () => {
 						color="default"
 						title="Editar perfil"
 					>
-						<IconConfig />
+						<IconUserSetting />
 					</Button>
 				</Link>
 				<Logout />
