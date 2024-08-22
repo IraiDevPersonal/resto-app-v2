@@ -28,6 +28,8 @@ const FilterToggleButtons = ({ options }: FilterToggleButtonsProps) => {
 				{(item) => (
 					<Button
 						key={item.value}
+						endContent={item.endContent}
+						startContent={item.startContent}
 						color={item.isActive ? "primary" : "default"}
 						onClick={() => handleSelectOption(item.value)}
 					>
