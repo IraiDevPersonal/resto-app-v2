@@ -4,3 +4,11 @@ export type ComandItem = {
 	productName: string;
 	productId: number;
 };
+
+export type ComandCardProps = {
+	orderNumber: number;
+	tableNumber: number;
+	items: ComandItem[];
+	status: string;
+	orders: number;
+};

@@ -1,14 +1,7 @@
 import ArrayMap from "@app/core/components/ArrayMap";
 import Box from "@app/core/components/Box";
-import { ComandItem } from "../models/Comand";
-
-type ComandCardProps = {
-	orderNumber: number;
-	tableNumber: number;
-	items: ComandItem[];
-	status: string;
-	orders: number;
-};
+import { ComandCardProps, ComandItem } from "../models/Comand";
+import { displayFormatedNumber } from "@utils/functions/displayFormatedNumber";
 
 const ComandCard = ({
 	orderNumber,
@@ -21,11 +14,11 @@ const ComandCard = ({
 		<>
 			<Box
 				as="article"
-				className="flex flex-col gap-2 w-full rounded-xl max-w-md shadow-md"
+				className="flex flex-col gap-2 w-full rounded-xl shadow-md"
 			>
 				<section className="flex items-center justify-between gap-4">
 					<div className="*:block">
-						<h3 className="font-bold text-2xl">Mesa {tableNumber}</h3>
+						<h4 className="font-bold text-2xl">Mesa {tableNumber}</h4>
 						<span className="text-default-500">{orders} Pedidos</span>
 					</div>
 					<div className="*:block">
@@ -57,13 +50,15 @@ function ComandItems({ items }: { items: ComandItem[] }) {
 						className="flex items-center gap-2 justify-between"
 					>
 						<span>{item.productName}</span>
-						<span>${item.productPrice}</span>
+						<span>
+							{displayFormatedNumber(item.productPrice, { showCurrency: true })}
+						</span>
 					</li>
 				)}
 			</ArrayMap>
 			<div className="flex justify-between items-center pt-2 text-lg">
 				<strong>Total</strong>
-				<strong>${total}</strong>
+				<strong>{displayFormatedNumber(total, { showCurrency: true })}</strong>
 			</div>
 		</section>
 	);
