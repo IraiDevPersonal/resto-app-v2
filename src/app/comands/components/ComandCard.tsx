@@ -2,6 +2,7 @@ import ArrayMap from "@app/core/components/ArrayMap";
 import Box from "@app/core/components/Box";
 import { ComandCardProps, ComandItem } from "../models/Comand";
 import { displayFormatedNumber } from "@utils/functions/displayFormatedNumber";
+import CircularProgress from "@app/core/components/CircularProgress";
 
 const ComandCard = ({
 	orderNumber,
@@ -17,6 +18,7 @@ const ComandCard = ({
 				className="flex flex-col gap-2 w-full rounded-xl shadow-md"
 			>
 				<section className="flex items-center justify-between gap-4">
+					<CircularProgress progress={30} />
 					<div className="*:block">
 						<h4 className="font-bold text-2xl">Mesa {tableNumber}</h4>
 						<span className="text-default-500">{orders} Pedidos</span>

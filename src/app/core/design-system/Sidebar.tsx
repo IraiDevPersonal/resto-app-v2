@@ -35,7 +35,12 @@ const Sidebar = () => {
 					dataset={PATHS}
 					className="space-y-1"
 				>
-					{(item) => <ActiveLink {...item} />}
+					{(item) => (
+						<ActiveLink
+							key={item.path}
+							{...item}
+						/>
+					)}
 				</ArrayMap>
 			</nav>
 
