@@ -1,4 +1,4 @@
-import FilterToggleButtons from "@app/core/design-system/FilterToggleButtons";
+import ToggleButtons from "@app/core/components/ToggleButtons";
 import Main from "@app/core/design-system/Main";
 import Search from "@app/core/design-system/Search";
 import { path } from "@app/routes/path";
@@ -11,7 +11,7 @@ const ComandsPage = () => {
 		<Route path={path.private.comands}>
 			<Main>
 				<Search name="q" />
-				<FilterToggleButtons options={CATEGORY_FILTERS} />
+				<ToggleButtons options={CATEGORY_FILTERS} />
 				<ComandGrid />
 			</Main>
 		</Route>
