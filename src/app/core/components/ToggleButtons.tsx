@@ -5,6 +5,7 @@ import Button from "./Button";
 import { tw } from "@utils/functions/tailwind";
 
 type FilterToggleButtonsProps = {
+	onSelectValue?(value: FilterToggleItem["value"]): void;
 	options: FilterToggleItem[];
 	classNames?: Partial<{
 		wrapper: string;
@@ -14,14 +15,22 @@ type FilterToggleButtonsProps = {
 
 type Option = FilterToggleItem & { isActive: boolean };
 
-const ToggleButtons = ({ options, classNames }: FilterToggleButtonsProps) => {
+const ToggleButtons = ({
+	options,
+	classNames,
+	onSelectValue
+}: FilterToggleButtonsProps) => {
 	const [state, setState] = useState<Option[]>(
 		options.map((el) => ({ ...el, isActive: false }))
 	);
 	const handleSelectOption = (value: Option["value"]) => {
-		setState((prevState) =>
-			prevState.map((el) => ({ ...el, isActive: el.value === value }))
-		);
+		setState((prevState) => {
+			return prevState.map((el) => {
+				const selected = el.value === value;
+				onSelectValue?.(value);
+				return { ...el, isActive: selected };
+			});
+		});
 	};
 	return (
 		<>

@@ -3,7 +3,6 @@ import Button from "@app/core/components/Button";
 import Counter from "@app/core/components/Counter";
 import ToggleButtons from "@app/core/components/ToggleButtons";
 import { displayFormatedNumber } from "@utils/functions/displayFormatedNumber";
-import { tw } from "@utils/functions/tailwind";
 import { useState } from "react";
 
 type FoodCardProps = {
@@ -26,6 +25,7 @@ const FoodCard = ({
 	sizes
 }: FoodCardProps) => {
 	const [foodCounter, setFoodCounter] = useState(0);
+	const [selectedSize, setSelectedSize] = useState("");
 	const isAddButtonDisabled = foodCounter <= 0 || foodCounter >= maxAmount;
 	return (
 		<>
@@ -52,23 +52,22 @@ const FoodCard = ({
 
 				<section>
 					<ToggleButtons
-						classNames={{
-							item: "text-sm"
-						}}
+						onSelectValue={setSelectedSize}
+						classNames={{ item: "text-sm" }}
 						options={sizes.map((el) => ({ label: el, value: el }))}
 					/>
 				</section>
 
-				<section className="flex items-center gap-2">
+				<section className="flex items-center gap-2 mt-auto">
 					<Counter
 						max={maxAmount}
 						value={foodCounter}
-						onChange={(value) => setFoodCounter(value)}
+						onChange={setFoodCounter}
 					/>
 					<Button
 						fullwidth
 						color="primary"
-						disabled={isAddButtonDisabled}
+						disabled={isAddButtonDisabled || selectedSize === ""}
 						title={
 							isAddButtonDisabled
 								? "La cantidad de este platillo debe ser mayor a 0"
@@ -100,15 +99,15 @@ function Price({ price, discount }: Pick<FoodCardProps, "discount" | "price">) {
 				{displayFormatedNumber(price, { showCurrency: true })}
 			</strong>
 			{discount && (
-				<span className="*:text-sm leading-tight">
+				<div className="*:text-sm leading-none">
 					<span className="text-default-400 line-through">
 						{displayFormatedNumber(price, { showCurrency: true })}
 					</span>
-					<small className="text-base text-danger">
+					<span className="text-base text-danger">
 						{" - "}
 						{discount}%
-					</small>
-				</span>
+					</span>
+				</div>
 			)}
 		</>
 	);
