@@ -14,7 +14,7 @@ const Badge = ({ color = "danger", value, className }: BadgeProps) => {
 			<span
 				title={value.toString()}
 				className={tw(
-					"h-5 min-w-5 px-1.5 rounded-full leading-none flex items-center",
+					"h-5 min-w-5 px-1.5 rounded-full leading-none flex items-center text-sm",
 					badgeVariant({ color }),
 					className
 				)}

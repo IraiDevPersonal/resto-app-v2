@@ -17,9 +17,9 @@ const ComandCard = ({
 				as="article"
 				className="flex flex-col gap-2 w-full rounded-xl shadow-md"
 			>
-				<section className="flex items-center justify-between gap-4">
+				<section className="flex items-center gap-4">
 					<CircularProgress progress={30} />
-					<div className="*:block">
+					<div className="*:block mr-auto">
 						<h4 className="font-bold text-2xl">Mesa {tableNumber}</h4>
 						<span className="text-default-500">{orders} Pedidos</span>
 					</div>

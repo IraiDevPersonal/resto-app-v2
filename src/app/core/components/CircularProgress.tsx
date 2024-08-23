@@ -14,7 +14,7 @@ type CircularProgressProps = {
 
 const CircularProgress = ({
 	progress,
-	size = 40,
+	size = 50,
 	classNames,
 	strokeWidth = 4,
 	color = "success"
@@ -24,12 +24,12 @@ const CircularProgress = ({
 	const strokeDashoffset = circumference - (progress / 100) * circumference;
 
 	return (
-		<div className="flex items-center justify-center">
+		<div className="flex items-center justify-center relative">
 			<svg
 				width={size}
 				height={size}
 				viewBox={`0 0 ${size} ${size}`}
-				className="transform rotate-90"
+				className="transform -rotate-90"
 			>
 				<circle
 					r={radius}
@@ -53,19 +53,18 @@ const CircularProgress = ({
 						classNames?.progress
 					)}
 				/>
-				<text
-					x="50%"
-					y="50%"
-					dy=".3em"
-					fontWeight="bold"
-					textAnchor="middle"
-					fontSize={size / 4}
-					dominantBaseline="middle"
-					className="fill-default-600"
-				>
-					{progress.toString()}%
-				</text>
 			</svg>
+			<span
+				style={{
+					top: "50%",
+					left: "50%",
+					fontSize: size / 4,
+					textAnchor: "middle"
+				}}
+				className="fill-default-600 absolute -translate-x-1/2 -translate-y-1/2"
+			>
+				{progress}%
+			</span>
 		</div>
 	);
 };
