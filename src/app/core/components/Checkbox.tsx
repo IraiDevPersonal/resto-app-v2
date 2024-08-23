@@ -2,6 +2,7 @@ import React, { useId } from "react";
 import { tw } from "@utils/functions/tailwind";
 import Field from "./Field";
 import { InputAtributtes } from "@utils/types";
+import IconCheck from "../design-system/icons/IconCheck";
 
 type Props = Omit<InputAtributtes, "type"> &
 	Partial<{
@@ -37,7 +38,7 @@ const Checkbox = React.forwardRef(
 					<label
 						htmlFor={currentId}
 						className={tw(
-							"h-5 w-5 min-w-5 rounded-lg bg-default-200 flex justify-center items-center cursor-pointer border border-transparent",
+							"h-6 w-6 min-w-5 rounded-lg bg-default-200 flex justify-center items-center cursor-pointer border border-transparent",
 							"peer-disabled:bg-transparent border-default-200 peer-disabled:text-default-300 peer-disabled:cursor-default",
 							"peer-hover:bg-default-300 peer-checked:bg-primary peer-checked:peer-hover:bg-primary-500 text-white",
 							"peer-disabled:peer-checked:bg-default-300 peer-disabled:peer-checked:text-white",
@@ -45,8 +46,7 @@ const Checkbox = React.forwardRef(
 							classNames?.checkbox
 						)}
 					>
-						{/* <IconCheck size={14} /> */}
-						<span>C</span>
+						<IconCheck />
 					</label>
 
 					<Field.Label className="cursor-pointer peer-disabled:cursor-default peer-disabled:text-default-400">

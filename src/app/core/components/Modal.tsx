@@ -4,6 +4,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { PropsWithChildren } from "react";
 import Button from "./Button";
 import CreateElement from "./CreateElement";
+import IconClose from "../design-system/icons/IconClose";
 
 type Props<T extends HTMLElement = HTMLElement> = PropsWithChildren<{
 	isOpen: boolean;
@@ -32,7 +33,10 @@ export default function Modal<T extends HTMLElement>({
 	...props
 }: Props<T>) {
 	return (
-		<Dialog.Root modal open={isOpen}>
+		<Dialog.Root
+			modal
+			open={isOpen}
+		>
 			<Dialog.Portal>
 				<Dialog.Overlay
 					onClick={() => {
@@ -75,8 +79,7 @@ export default function Modal<T extends HTMLElement>({
 								classNames?.closeButton
 							)}
 						>
-							{/* <IconX size={ICON_SIZE.DEFAULT} /> */}
-							<span>X</span>
+							<IconClose />
 						</Dialog.Close>
 					)}
 				</Dialog.Content>
