@@ -16,18 +16,8 @@ export const COLORS = {
 		DEFAULT: "#e2c31f"
 	},
 	secondary: {
-		50: "#fffbeb",
-		100: "#fff3c6",
-		200: "#ffe588",
-		300: "#ffd24a",
-		400: "#ffbe20",
-		500: "#f99b07",
-		600: "#db7302",
-		700: "#b75006",
-		800: "#943d0c",
-		900: "#7a320d",
-		950: "#461902",
-		DEFAULT: "#f99b07"
+		...neutral,
+		DEFAULT: neutral[950]
 	},
 	danger: {
 		...red,
