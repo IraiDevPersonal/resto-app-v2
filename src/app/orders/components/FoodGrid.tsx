@@ -10,8 +10,8 @@ const FoodGrid = () => {
 						key={item}
 						price={4300}
 						maxAmount={3}
-						foodName="Hamburguesa"
 						discount={20}
+						foodName="Hamburguesa"
 						image="/food-placeholder.jpg"
 						ingredients={[
 							"Hamburguesa vacuno",
