@@ -8,21 +8,28 @@ type CounterProps = {
 	onChange(value: number): void;
 };
 
-const Counter = ({ max, onChange, value }: CounterProps) => {
+const Counter = ({ max, value, onChange }: CounterProps) => {
 	return (
 		<div className="flex items-center gap-4 w-max">
 			<Button
 				isIconOnly
 				color="default"
 				disabled={value <= 0}
+				onClick={() => onChange(Math.max(0, value - 1))}
 			>
 				<IconMinus />
 			</Button>
-			<span className="text-lg font-semibold">{value}</span>
+			<span
+				title={`Maximo ${max}`}
+				className="text-lg font-semibold"
+			>
+				{value}
+			</span>
 			<Button
 				isIconOnly
 				color="default"
 				disabled={value >= max}
+				onClick={() => onChange(Math.min(max, value + 1))}
 			>
 				<IconPlus />
 			</Button>

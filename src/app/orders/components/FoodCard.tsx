@@ -3,6 +3,8 @@ import Button from "@app/core/components/Button";
 import Counter from "@app/core/components/Counter";
 import ToggleButtons from "@app/core/components/ToggleButtons";
 import { displayFormatedNumber } from "@utils/functions/displayFormatedNumber";
+import { tw } from "@utils/functions/tailwind";
+import { useState } from "react";
 
 type FoodCardProps = {
 	price: number;
@@ -10,16 +12,21 @@ type FoodCardProps = {
 	sizes: string[];
 	foodName: string;
 	maxAmount: number;
+	discount?: number;
 	ingredients: string[];
 };
 
 const FoodCard = ({
 	ingredients,
 	maxAmount,
+	discount,
 	foodName,
+	image,
 	price,
 	sizes
 }: FoodCardProps) => {
+	const [foodCounter, setFoodCounter] = useState(0);
+	const isAddButtonDisabled = foodCounter <= 0 || foodCounter >= maxAmount;
 	return (
 		<>
 			<Box
@@ -28,8 +35,8 @@ const FoodCard = ({
 			>
 				<picture className="rounded-lg w-max !p-0">
 					<img
+						src={image}
 						alt="food-placeholder"
-						src="/food-placeholder.jpg"
 						className="w-80 h-full object-cover"
 					/>
 				</picture>
@@ -37,9 +44,10 @@ const FoodCard = ({
 				<section className="*:block">
 					<h4 className="font-bold text-2xl">{foodName}</h4>
 					<Ingredients ingredients={ingredients} />
-					<strong className="text-primary text-2xl font-bold">
-						{displayFormatedNumber(price, { showCurrency: true })}{" "}
-					</strong>
+					<Price
+						price={price}
+						discount={discount}
+					/>
 				</section>
 
 				<section>
@@ -53,13 +61,19 @@ const FoodCard = ({
 
 				<section className="flex items-center gap-2">
 					<Counter
-						value={0}
 						max={maxAmount}
-						onChange={() => {}}
+						value={foodCounter}
+						onChange={(value) => setFoodCounter(value)}
 					/>
 					<Button
 						fullwidth
 						color="primary"
+						disabled={isAddButtonDisabled}
+						title={
+							isAddButtonDisabled
+								? "La cantidad de este platillo debe ser mayor a 0"
+								: undefined
+						}
 					>
 						Agregar
 					</Button>
@@ -76,5 +90,26 @@ function Ingredients({ ingredients }: Pick<FoodCardProps, "ingredients">) {
 		<span className="text-default-400 text-xs break-words">
 			{ingredients.join(", ")}.
 		</span>
+	);
+}
+
+function Price({ price, discount }: Pick<FoodCardProps, "discount" | "price">) {
+	return (
+		<>
+			<strong className="text-primary text-xl font-bold leading-snug">
+				{displayFormatedNumber(price, { showCurrency: true })}
+			</strong>
+			{discount && (
+				<span className="*:text-sm leading-tight">
+					<span className="text-default-400 line-through">
+						{displayFormatedNumber(price, { showCurrency: true })}
+					</span>
+					<small className="text-base text-danger">
+						{" - "}
+						{discount}%
+					</small>
+				</span>
+			)}
+		</>
 	);
 }
