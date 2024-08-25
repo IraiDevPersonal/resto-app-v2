@@ -33,8 +33,8 @@ function Grid({
 			</h3>
 
 			<ArrayMap
-				dataset={comandCards}
 				as="div"
+				dataset={comandCards}
 				className="grid grid-cols-3 gap-4"
 			>
 				{(item) => (
